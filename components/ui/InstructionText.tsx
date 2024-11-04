@@ -1,8 +1,9 @@
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, TextStyle, StyleProp } from 'react-native';
 import Colors from '../../constants/Colors';
 
 type InstructionTextProps = {
   children: React.ReactNode;
+  style?: StyleProp<TextStyle>;
 };
 
 function InstructionText({ children, style }: InstructionTextProps) {
