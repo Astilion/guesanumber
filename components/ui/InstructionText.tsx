@@ -5,8 +5,8 @@ type InstructionTextProps = {
   children: React.ReactNode;
 };
 
-function InstructionText({ children }: InstructionTextProps) {
-  return <Text style={styles.instructionText}>{children}</Text>;
+function InstructionText({ children, style }: InstructionTextProps) {
+  return <Text style={[styles.instructionText, style]}>{children}</Text>;
 }
 
 export default InstructionText;
