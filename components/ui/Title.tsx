@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { StyleSheet, Text } from 'react-native';
 import Colors from '../../constants/Colors';
 
@@ -13,8 +12,8 @@ export default Title;
 
 const styles = StyleSheet.create({
   title: {
+    fontFamily: 'open-sans-bold',
     fontSize: 24,
-    fontWeight: 'bold',
     color: Colors.accent500,
     textAlign: 'center',
     borderWidth: 2,
