@@ -15,7 +15,7 @@ type generateRandomBetweenT = {
 };
 type GameScreenProps = {
   userNumber: number;
-  onGameOver: () => void;
+  onGameOver: (numberOfRounds:number) => void;
 };
 
 let minBoundary = 1;
@@ -48,7 +48,7 @@ function GameScreen(this: any, { userNumber, onGameOver }: GameScreenProps) {
 
   useEffect(() => {
     if (currentGuess === userNumber) {
-      onGameOver();
+      onGameOver(guessRounds.length);
     }
   }, [currentGuess, userNumber, onGameOver]);
 
@@ -104,11 +104,14 @@ function GameScreen(this: any, { userNumber, onGameOver }: GameScreenProps) {
           </View>
         </View>
       </Card>
-      <View>
+      <View style={styles.listContainer}>
         <FlatList
           data={guessRounds}
           renderItem={(itemData) => (
-            <GuessLogItem roundNumber={guessRoundsListLength - itemData.index} guess={itemData.item} />
+            <GuessLogItem
+              roundNumber={guessRoundsListLength - itemData.index}
+              guess={itemData.item}
+            />
           )}
           keyExtractor={(item) => item.toString()}
         />
@@ -132,5 +135,9 @@ const styles = StyleSheet.create({
   },
   instructionText: {
     marginBottom: 12,
+  },
+  listContainer: {
+    flex: 1,
+    padding: 16,
   },
 });
